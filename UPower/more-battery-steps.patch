@@ -1,0 +1,18 @@
+--- a/src/up-device.c	2016-10-22 00:57:23.190171676 +0200
++++ b/src/up-device.c	2016-10-22 11:50:37.395899441 +0200
+@@ -83,10 +83,14 @@
+ {
+ 	if (percentage < 10)
+ 		return charging ? "battery-caution-charging-symbolic" : "battery-caution-symbolic";
+-	else if (percentage < 30)
++	else if (percentage < 25)
+ 		return charging ? "battery-low-charging-symbolic" : "battery-low-symbolic";
++	else if (percentage < 40)
++		return charging ? "battery-mid-charging-symbolic" : "battery-mid-symbolic";
+ 	else if (percentage < 60)
+ 		return charging ? "battery-good-charging-symbolic" : "battery-good-symbolic";
++	else if (percentage < 80)
++		return charging ? "battery-high-charging-symbolic" : "battery-high-symbolic";
+ 	return charging ? "battery-full-charging-symbolic" : "battery-full-symbolic";
+ }
+ 
